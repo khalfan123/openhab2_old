@@ -1,0 +1,11 @@
+rule "Room Temperature"
+when
+	Time cron "0 * * ? * *"
+then
+	val TEMP = executeCommandLine("/usr/bin/python /etc/openhab2/scripts/AdafruitDHT.py", 5000)
+	if (TEMP.toString().length <= 5) RoomTemp.postUpdate(TEMP)
+	Thread::sleep(5000)
+	val HUMID = executeCommandLine("/usr/bin/python /etc/openhab2/scripts/AdafruitDHThumidity.py", 5000)
+	if (HUMID.toString().length <= 5) RoomHumidity.postUpdate(HUMID)
+	logInfo("Room temperature", "Temperatur: " + TEMP.toString() + "°C, Feuchte: " + HUMID.toString() + "%")
+end

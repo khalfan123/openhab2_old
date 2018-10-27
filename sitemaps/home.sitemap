@@ -1,0 +1,19 @@
+sitemap home label="Test home automation" {
+    Frame label="Date And Time" {
+        Text item=CurrentDate
+		Text item=CurrentTime
+		Text item=RoomTemp
+		Text item=RoomHumidity
+    }
+	Frame {
+		Group item=gFF label="First Floor" icon="firstfloor"
+		Group item=gGF label="Ground Floor" icon="groundfloor"
+		//Group item=Garden icon="garden"
+	}
+	Frame label="Outside Weather" {
+		Text item=Temperature
+		Text item=Humidity
+		Text item=Pressure
+	}
+    
+}

@@ -1,0 +1,43 @@
+Group gFF           "First Floor"   <firstfloor>
+
+
+Group FF_Bath       "Bathroom"      <bath>      (gFF)
+Group FF_Child      "Child's Room"  <boy_1>      (gFF)
+Group FF_Bed        "Bedroom"       <bedroom>   (gFF)
+Group FF_Corridor   "Corridor"      <corridor>  (gFF)
+Group FF_Terrace   "Terrace"      <terrace>  (gFF)
+
+
+/* active groups */
+Group:Switch:OR(ON, OFF)        Lights      "All Lights [(%d)]"
+
+
+
+
+
+/* Lights */
+
+
+Switch Light_FF_Bed_Ceiling         "Ceiling Lights"   <slider>		 (FF_Bed, Lights) { gpio="pin:26 activelow:yes initialValue:high" } 
+Switch Light_FF_Bed_Ceiling2        "Ceiling Lights"   <slider>		 (FF_Bed, Lights) { gpio="pin:19 activelow:yes initialValue:high" }
+Switch Fan_FF_Bed_CeilingFan	    "Bedroom Fan"    <fan_ceiling>   (FF_Bed) { gpio="pin:13 activelow:yes initialValue:high" }
+Switch Screen_FF_Bed_LedTv			"LED TV"		 <video>		 (FF_Bed)	{ gpio="pin:6 activelow:yes initialValue:high" }
+
+
+
+
+DateTime CurrentDate    "Date [%1$tA, %1$td.%1$tm.%1$tY]" <calendar>  { channel="ntp:ntp:demo:dateTime" }
+DateTime CurrentTime  	"Time [%1$tH:%1$tM]" <time> { channel="ntp:ntp:demo:dateTime" }
+
+
+Number Temperature 	"Outside Temperature" <temperature>	{ channel="yahooweather:weather:Pakistan:temperature" }
+Number Humidity 	"Outside humidity" <humidity>	{ channel="yahooweather:weather:Pakistan:humidity" }
+Number Pressure 	"Outside pressure" <pressure>	{ channel="yahooweather:weather:Pakistan:pressure" }
+
+
+
+
+Number	RoomTemp					"Room Temperature [%.2f °C]" <temperature>
+Number	RoomHumidity		  			"Room Humidity [%.2f %%]" <humidity>
+
+

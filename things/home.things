@@ -1,0 +1,5 @@
+yahooweather:weather:Pakistan [ location=2211177 ]
+
+ntp:ntp:demo  [ hostname="nl.pool.ntp.org", refreshInterval=60, refreshNtp=01 ]
+
+
